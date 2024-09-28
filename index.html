@@ -1,11 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=ai-playlist-app.onrender.com">
-    <title>Redirecting...</title>
+  <meta charset="utf-8">
+  <title>Create Playlist</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: wheat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #f8f4f0;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 10px;
+      color: #555;
+    }
+    input[type="text"], textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      resize: vertical;
+    }
+    textarea {
+      height: 150px;
+    }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    h5 
+    {
+      font-weight: normal;
+      color: #555;
+      margin-top:0px;
+      font-style: italic;
+    }
+    .info-container {
+      cursor: pointer;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    .info-container:hover {
+      text-decoration: underline;
+    }
+    .examples {
+      display: none;
+      margin-top: 10px;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+    .examples p {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, follow this <a href="https://www.ai-playlist-app.onrender.com">link</a>.</p>
+  <div class="container">
+    <h1>AI Spotify Playlist Generator</h1>
+    <form method="post">
+      <label for="playlist_name">Playlist Name:</label>
+      <input type="text" id="playlist_name" name="playlist_name" required>
+      <label for="prompt">Describe this Playlist:</label>  
+      <textarea id="prompt" name="prompt" required placeholder="Describe what the playlist is for and what kind of music you want."></textarea>
+      <div class="info-container" onclick="toggleExamples()">
+        <strong>Example Descriptions</strong>
+      </div>
+      <div class="examples">
+        <i>
+        <p>"Songs for a themed Harry Potter party, including tracks that evoke the magic and adventure of the series."</p>
+        <p>"Music that blends classical pieces with modern pop for a sophisticated yet contemporary dinner party."</p>
+        <p>"Music to help me concentrate on my painting, with a mix of instrumental and ambient tracks."</p>
+        <p>"A playlist of relaxing lo-fi beats interspersed with nature sounds for a calming background while meditating."</p>
+        <p>"Upbeat and motivational tracks for running that include both current hits and lesser-known indie songs."</p>
+        </i>
+      </div>
+      <input type="submit" value="Generate Playlist">
+    </form>
+  </div>
+
+  <script>
+    function toggleExamples() {
+      var examples = document.querySelector('.examples');
+      if (examples.style.display === "none" || examples.style.display === "") {
+        examples.style.display = "block";
+      } else {
+        examples.style.display = "none";
+      }
+    }
+  </script>
+
 </body>
 </html>
